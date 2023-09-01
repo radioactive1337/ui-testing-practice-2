@@ -23,10 +23,8 @@ class SimpleFormPage(BasePage):
         self.get_element(SimpleFormLocators.SECOND_VALUE_INPUT).send_keys(val2)
         self.get_element(SimpleFormLocators.SUM_VALUES_BUTTON).click()
 
-    @property
     def get_message_res(self):
         return self.get_element(SimpleFormLocators.MESSAGE_RESULT).text
 
-    @property
     def get_sum_res(self):
         return self.get_element(SimpleFormLocators.SUM_RESULT).text
