@@ -2,7 +2,7 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 
 
-class FormLocators:
+class FormPageLocators:
     NAME_INPUT = (By.XPATH, "//input[@id='name']")
     EMAIL_INPUT = (By.XPATH, "//input[@id='inputEmail4']")
     PASSWORD_INPUT = (By.XPATH, "//input[@id='inputPassword4']")
@@ -20,40 +20,40 @@ class FormLocators:
 
 class FormPage(BasePage):
     def fill_inp_name(self, name):
-        self.input_text(FormLocators.NAME_INPUT, name)
+        self.fill_input(FormPageLocators.NAME_INPUT, name)
 
     def fill_inp_email(self, email):
-        self.input_text(FormLocators.EMAIL_INPUT, email)
+        self.fill_input(FormPageLocators.EMAIL_INPUT, email)
 
     def fill_inp_pass(self, passw):
-        self.input_text(FormLocators.PASSWORD_INPUT, passw)
+        self.fill_input(FormPageLocators.PASSWORD_INPUT, passw)
 
     def fill_inp_company(self, company):
-        self.input_text(FormLocators.COMPANY_INPUT, company)
+        self.fill_input(FormPageLocators.COMPANY_INPUT, company)
 
     def fill_inp_website(self, website):
-        self.input_text(FormLocators.WEBSITE_INPUT, website)
+        self.fill_input(FormPageLocators.WEBSITE_INPUT, website)
 
     def fill_inp_country(self, country):
-        self.select_value(FormLocators.COUNTRY_INPUT, country)
+        self.select_value(FormPageLocators.COUNTRY_INPUT, country)
 
     def fill_inp_city(self, city):
-        self.input_text(FormLocators.CITY_INPUT, city)
+        self.fill_input(FormPageLocators.CITY_INPUT, city)
 
     def fill_inp_addr1(self, addr1):
-        self.input_text(FormLocators.ADDRESS1_INPUT, addr1)
+        self.fill_input(FormPageLocators.ADDRESS1_INPUT, addr1)
 
     def fill_inp_addr2(self, addr2):
-        self.input_text(FormLocators.ADDRESS2_INPUT, addr2)
+        self.fill_input(FormPageLocators.ADDRESS2_INPUT, addr2)
 
     def fill_inp_state(self, state):
-        self.input_text(FormLocators.STATE_INPUT, state)
+        self.fill_input(FormPageLocators.STATE_INPUT, state)
 
     def fill_inp_zip(self, zipcode):
-        self.input_text(FormLocators.ZIPCODE_INPUT, zipcode)
+        self.fill_input(FormPageLocators.ZIPCODE_INPUT, zipcode)
 
     def submit_form(self):
-        self.click_element(FormLocators.SUBMIT_BUTTON)
+        self.click_element(FormPageLocators.SUBMIT_BUTTON)
 
     def fill_full_form(self, name, email, passw, company, website, country, city, addr1, addr2, state, zipcode):
         self.fill_inp_name(name)
@@ -70,4 +70,4 @@ class FormPage(BasePage):
         self.submit_form()
 
     def form_is_submited(self):
-        return "display" in self.get_element_attribute(FormLocators.SUBMIT_RES, "style")
+        return "display" in self.get_element_attribute(FormPageLocators.SUBMIT_RES, "style")

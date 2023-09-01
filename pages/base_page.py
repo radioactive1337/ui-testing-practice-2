@@ -50,7 +50,7 @@ class BasePage:
     def clear_cookies(self):
         self.driver.delete_all_cookies()
 
-    def input_text(self, locator, value):
+    def fill_input(self, locator, value):
         """
         insert all text at once
         """
