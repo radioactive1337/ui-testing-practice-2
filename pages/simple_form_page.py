@@ -14,17 +14,23 @@ class SimpleFormLocators:
 
 
 class SimpleFormPage(BasePage):
-    def send_text_for_message_inp(self, message):
+    def fill_inp_message(self, message):
         self.get_element(SimpleFormLocators.MESSAGE_INPUT).send_keys(f"{message}")
         self.get_element(SimpleFormLocators.MESSAGE_INPUT_BUTTON).click()
 
-    def send_values_for_sum(self, val1, val2):
+    def fill_first_inp_sum(self, val1):
         self.get_element(SimpleFormLocators.FIRST_VALUE_INPUT).send_keys(val1)
+
+    def fill_second_inp_sum(self, val2):
         self.get_element(SimpleFormLocators.SECOND_VALUE_INPUT).send_keys(val2)
-        self.get_element(SimpleFormLocators.SUM_VALUES_BUTTON).click()
 
-    def get_message_res(self):
-        return self.get_element(SimpleFormLocators.MESSAGE_RESULT).text
+    def fil_full_form_sum(self, val1, val2):
+        self.fill_first_inp_sum(val1)
+        self.fill_second_inp_sum(val2)
+        self.click_element(SimpleFormLocators.SUM_VALUES_BUTTON)
 
-    def get_sum_res(self):
-        return self.get_element(SimpleFormLocators.SUM_RESULT).text
+    def verify_message_res(self, message):
+        return self.get_element(SimpleFormLocators.MESSAGE_RESULT).text == message
+
+    def verify_sum_res(self, val1, val2):
+        return self.get_element(SimpleFormLocators.SUM_RESULT).text == f"{val1 + val2}"
