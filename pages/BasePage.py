@@ -8,9 +8,9 @@ from selenium.webdriver.support.select import Select
 
 class BasePage:
 
-    def __init__(self, driver, url):
+    def __init__(self, driver, path):
         self.driver = driver
-        self.url = url
+        self.url = f"https://www.lambdatest.com/selenium-playground/{path}"
 
     #  GET
 
@@ -60,12 +60,20 @@ class BasePage:
     def select_value(self, locator, value):
         return Select(self.get_element(locator)).select_by_value(value)
 
-    def verify_element_present(self, locator):
+    def refresh_page(self):
+        self.driver.refresh()
+        try:
+            self.driver.switch_to.alert.accept()
+        except Exception:
+            pass
+        self.driver.switch_to.default_content()
+
+    def verify_element_present(self, locator, time=5):
         """
         checking the presence of the element
         """
         try:
-            self.get_element(locator)
+            self.get_element(locator, time)
             return True
         except selenium.common.TimeoutException:
             return False

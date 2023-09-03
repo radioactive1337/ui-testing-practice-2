@@ -1,8 +1,6 @@
 import pytest
 from selenium import webdriver
 from colorama import Fore
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
 
 def pytest_addoption(parser):
@@ -14,9 +12,8 @@ def pytest_addoption(parser):
 def driver(request):
     driver_name = request.config.getoption("driver")
     headless = request.config.getoption("headless")
-    driver = None
     if driver_name == "chrome":
-        print(Fore.YELLOW + "\n----- Starting chrome driver ...")
+        print(Fore.YELLOW + "\nStarting chrome driver ...")
         opt = webdriver.ChromeOptions()
         if headless == "true":
             opt.add_argument("--headless")
@@ -28,7 +25,7 @@ def driver(request):
             opt.add_argument("--headless")
         driver = webdriver.Firefox(options=opt)
     else:
-        raise pytest.UsageError("--driver should be chrome or firefox")
+        raise pytest.UsageError("\n--driver should be chrome or firefox")
     yield driver
     print(Fore.YELLOW + "\n----- Quiting driver ...")
     driver.quit()
