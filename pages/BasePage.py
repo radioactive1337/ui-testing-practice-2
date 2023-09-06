@@ -83,3 +83,13 @@ class BasePage:
 
     def scroll_page_to_bottom(self):
         self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
+
+    def switch_to_main_window(self):
+        windows_list = self.driver.window_handles
+        self.driver.switch_to.window(windows_list[0])
+
+    def switch_to_new_window(self):
+        windows_list = self.driver.window_handles
+        if len(windows_list) == 1:
+            raise Exception('New window not found')
+        self.driver.switch_to.window(windows_list[-1])
