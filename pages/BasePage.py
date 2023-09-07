@@ -37,6 +37,13 @@ class BasePage:
     def get_element_attribute(self, locator, attr):
         return self.get_element(locator).get_attribute(attr)
 
+    def get_elements_count(self, locator):
+        """
+        returns the number of elements found
+        """
+        value = len(self.driver.get_elements(locator))
+        return value
+
     # OTHER
     def open(self):
         self.driver.get(self.url)
