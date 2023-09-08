@@ -8,7 +8,7 @@ def pytest_addoption(parser):
     parser.addoption("--headless", action="store", default="false", help="Choose the mode: true or false")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def driver(request):
     driver_name = request.config.getoption("driver")
     headless = request.config.getoption("headless")

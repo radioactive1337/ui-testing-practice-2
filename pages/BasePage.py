@@ -1,5 +1,9 @@
+import time
+
 import selenium.common
 from time import sleep
+
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
@@ -47,6 +51,14 @@ class BasePage:
     # OTHER
     def open(self):
         self.driver.get(self.url)
+        self.wait_for_page_to_load()
+
+    def wait_for_page_to_load(self):
+        wait = WebDriverWait(self.driver, 5)
+        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body')))
+
+    def close_current_window(self):
+        self.driver.close()
 
     def wait(self, time: float):
         sleep(time)
