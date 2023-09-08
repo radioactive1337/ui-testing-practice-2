@@ -13,13 +13,13 @@ def driver(request):
     driver_name = request.config.getoption("driver")
     headless = request.config.getoption("headless")
     if driver_name == "chrome":
-        print(Fore.YELLOW + "\nStarting chrome driver ...")
+        print(Fore.LIGHTYELLOW_EX + "\nStarting chrome driver ...")
         opt = webdriver.ChromeOptions()
         if headless == "true":
             opt.add_argument("--headless")
         driver = webdriver.Chrome(options=opt)
     elif driver_name == 'firefox':
-        print(Fore.YELLOW + "\nStarting firefox driver ...")
+        print(Fore.LIGHTYELLOW_EX + "\nStarting firefox driver ...")
         opt = webdriver.FirefoxOptions()
         if headless == "true":
             opt.add_argument("--headless")
@@ -27,5 +27,5 @@ def driver(request):
     else:
         raise pytest.UsageError("\n--driver should be chrome or firefox")
     yield driver
-    print(Fore.YELLOW + "\nQuiting driver ...")
+    print(Fore.LIGHTYELLOW_EX + "\nQuiting driver ...")
     driver.quit()
