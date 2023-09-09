@@ -9,4 +9,4 @@ def test_formpage(driver, name, email, passw, company, website, country, city, a
     page = FormPage(driver, "input-form-demo")
     page.open()
     page.fill_full_form(name, email, passw, company, website, country, city, addr1, addr2, state, zipcode)
-    assert page.form_is_submited()
+    assert page.form_is_submited(), "form isn't correct"

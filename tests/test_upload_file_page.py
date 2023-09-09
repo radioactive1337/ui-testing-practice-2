@@ -9,4 +9,4 @@ def test_uploadfilepage(driver, file):
     page = UploadFilePage(driver, "upload-file-demo")
     page.open()
     page.input_file(file)
-    assert page.file_is_uploaded()
+    assert page.file_is_uploaded(), "file isn't uploaded"

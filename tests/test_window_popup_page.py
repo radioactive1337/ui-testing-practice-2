@@ -6,14 +6,14 @@ def test_windowpopuppage(driver):
     page.open()
     page.open_twitter_window()
     page.switch_to_new_window()
-    assert "twitter" in page.get_url()
+    assert "twitter" in page.get_url(), "window isn't twitter website"
     page.close_current_window()
     page.switch_to_main_window()
     page.open_facebook_window()
     page.switch_to_new_window()
-    assert "facebook" in page.get_url()
+    assert "facebook" in page.get_url(), "window isn't facebook website"
     page.close_current_window()
     page.switch_to_main_window()
     page.open_linkedin_window()
     page.switch_to_new_window()
-    assert "linkedin" in page.get_url()
+    assert "linkedin" in page.get_url(), "window isn't linkedin website"

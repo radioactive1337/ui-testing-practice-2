@@ -45,8 +45,7 @@ class BasePage:
         """
         returns the number of elements found
         """
-        value = len(self.driver.get_elements(locator))
-        return value
+        return len(self.driver.get_elements(locator))
 
     # OTHER
     def open(self):
@@ -54,8 +53,7 @@ class BasePage:
         self.wait_for_page_to_load()
 
     def wait_for_page_to_load(self):
-        wait = WebDriverWait(self.driver, 5)
-        wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body')))
+        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, 'body')))
 
     def close_current_window(self):
         self.driver.close()
@@ -77,7 +75,7 @@ class BasePage:
         self.get_element(locator).send_keys(value)
 
     def select_value(self, locator, value):
-        return Select(self.get_element(locator)).select_by_value(value)
+        Select(self.get_element(locator)).select_by_value(value)
 
     def refresh_page(self):
         self.driver.refresh()
@@ -104,11 +102,9 @@ class BasePage:
         self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
 
     def switch_to_main_window(self):
-        windows_list = self.driver.window_handles
-        self.driver.switch_to.window(windows_list[0])
+        self.driver.switch_to.window(self.driver.window_handles[0])
 
     def switch_to_new_window(self):
-        windows_list = self.driver.window_handles
-        if len(windows_list) == 1:
+        if len(self.driver.window_handles) == 1:
             raise Exception('New window not found')
-        self.driver.switch_to.window(windows_list[-1])
+        self.driver.switch_to.window(self.driver.window_handles[-1])

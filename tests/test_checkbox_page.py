@@ -7,6 +7,6 @@ def test_checkboxpage(driver):
     page.open()
     page.select_checkbox(CheckboxPageLocators.CHECKBOX_1)
     page.click_element(CheckboxPageLocators.BUTTON_CHECK_ALL)
-    assert page.single_checkbox_is_checked()
-    assert page.double_checkboxes_is_disabled()
-    assert page.quad_checkboxes_is_checked()
+    assert page.single_checkbox_is_checked(), "checkbox isn't checked"
+    assert page.double_checkboxes_is_disabled(), "checkboxes aren't disabled"
+    assert page.quad_checkboxes_is_checked(), "checkbox isn't checked"

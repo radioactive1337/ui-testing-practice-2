@@ -1,3 +1,5 @@
+import pytest
+
 from pages.DataTableDownloadPage import DataTableDownloadPage
 
 
@@ -12,8 +14,7 @@ def test_datatabledownloadpage(driver):
     page.pdf_download()
     page.wait(1)
     page.open_and_switch_print_version()
-    assert page.print_version_is_existed()
-    assert page.pdf_is_dowloaded()
-    assert page.xlsx_is_dowloaded()
-    assert page.csv_is_dowloaded()
-    page.switch_to_main_window()
+    assert page.print_version_is_existed(), "there is no print version"
+    assert page.pdf_is_dowloaded(), "pdf file isn't downloaded"
+    assert page.xlsx_is_dowloaded(), "xlsx file isn't downloaded"
+    assert page.csv_is_dowloaded(), "csv file isn't downloaded"
