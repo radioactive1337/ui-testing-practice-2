@@ -22,13 +22,13 @@ values for --headless=false/true
 To run all tests with chrome
 
 ```bash
-pytest -rAv
+pytest
 ```
 
 To run all tests with firefox and headless mode
 
 ```bash
-pytest -rAv --headless=true driver=firefox
+pytest --headless=true driver=firefox
 ```
 
 ## Project Structure

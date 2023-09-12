@@ -14,4 +14,3 @@ def test_alertboxpage(driver):
     assert page.get_alert_hint() == "Please enter your name", "the prompt box text doesn't match"
     page.enter_text_alert("qwe")
     page.accept_alert()
-    page.wait(5)

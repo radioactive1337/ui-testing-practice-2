@@ -4,8 +4,18 @@ from colorama import Fore
 
 
 def pytest_addoption(parser):
-    parser.addoption("--driver", action="store", default="chrome", help="Choose browser: chrome or firefox")
-    parser.addoption("--headless", action="store", default="false", help="Choose the mode: true or false")
+    parser.addoption(
+        "--driver",
+        action="store",
+        default="chrome",
+        help="Choose browser: chrome or firefox"
+    )
+    parser.addoption(
+        "--headless",
+        action="store",
+        default="false",
+        help="Choose the mode: true or false"
+    )
 
 
 @pytest.fixture(scope="function")

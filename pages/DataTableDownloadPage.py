@@ -40,7 +40,8 @@ class DataTableDownloadPage(BasePage):
         return os.path.isfile("C:\\Users\\radioactive\\Downloads\\Selenium Grid Online  Run Selenium Test On Cloud.pdf")
 
     def xlsx_is_dowloaded(self):
-        return os.path.isfile("C:\\Users\\radioactive\\Downloads\\Selenium Grid Online  Run Selenium Test On Cloud.xlsx")
+        return os.path.isfile(
+            "C:\\Users\\radioactive\\Downloads\\Selenium Grid Online  Run Selenium Test On Cloud.xlsx")
 
     def csv_is_dowloaded(self):
         return os.path.isfile("C:\\Users\\radioactive\\Downloads\\Selenium Grid Online  Run Selenium Test On Cloud.csv")
