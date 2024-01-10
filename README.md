@@ -1,4 +1,4 @@
-# ui-test-practice
+# ui-testing-practice-2
 
 Clone project from GIT with following command
 
